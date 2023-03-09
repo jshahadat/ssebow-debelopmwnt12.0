@@ -7,11 +7,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function ResultMain({ data }) {
+    let url = data.pretty_url;
+    if (url.length > 10) url = url.slice(0, 30) + "...";
+
     return (
-        <div className="pt- pb-5 pe-5 ms-sm-5 d-flex justify-items-center justify-content-center">
-            <div className="ResultMainConatiner pt-5" tabIndex="-1">
+        <div className="d-flex justify-items-center justify-content-center">
+            <div className="ResultMainConatiner" tabIndex="-1">
                 <a target={"_blank"} rel="noreferrer" href={data.pretty_url} className="ResultMainUpperLink pe-3">
-                    {data.pretty_url}
+                    {url}
                 </a>
                 <a target={"_blank"} rel="noreferrer" href={data.pretty_url} className="ResultMainLink ">
                     <LinesEllipsis text={data.title} maxLine="2" ellipsis="..." trimRight basedOn="letters" />

@@ -2,21 +2,22 @@
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types"; // ES6
-import React, { useEffect } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Button, Form } from "react-bootstrap";
 import { useHistory, useLocation } from "react-router-dom";
 import { BASEURL } from "../../connection/BaseUrl";
 import Bookmarks from "../Bookmarks/Bookmarks";
 import SideVideo from "./SideVideo/SideVideo";
 
 function SearchBarHome() {
+    const [searchBar, setSearchBar] = useState(false);
     const history = useHistory();
     const [inputVal, SetInputVal] = React.useState("");
     const [SuggestionReady, SetSuggestionReady] = React.useState(false);
     const [Suggestions, SetSuggestions] = React.useState([]);
 
     const location = useLocation();
-    console.log(location.pathname);
+    // console.log(location.pathname);
 
     var fetchUrl = BASEURL + "autocomplete-ssebowa/";
     const FetchSuggestions = (value) => {
@@ -30,7 +31,7 @@ function SearchBarHome() {
             .then((response) => response.json())
             .then((response) => {
                 var sugg = response;
-                console.log(sugg);
+                // console.log(sugg);
                 SetSuggestionReady(true);
                 SetSuggestions(sugg[1]);
             })
@@ -84,37 +85,6 @@ function SearchBarHome() {
                 <SideVideo></SideVideo>
             </div>
             <div className="mainSearchBarMainDiv100">
-                {/* <form
-                    method="NONE"
-                    className="mainSearchBarForm"
-                    onSubmit={(e) => SubmitSearchRequest(e)}
-                >
-                    <FontAwesomeIcon
-                        icon={faMagnifyingGlass}
-                        className="text-dark"
-                        size="lg"
-                        style={{
-                            color: "#59e3a7",
-                            marginRight: "auto",
-                            marginLeft: 10,
-                        }}
-                    />
-                    <input
-                        type="text"
-                        className="mainSearchBar"
-                        value={inputVal}
-                        placeholder="Search the web to plant trees..."
-                        onChange={(e) => onChangeInput(e)}
-                    />
-                    <button
-                        style={{
-                            backgroundColor: "green",
-                            height: "100%",
-                        }}
-                    >
-                        Sub
-                    </button>
-                </form> */}
                 {location.pathname != "/" ? (
                     <>
                         <Form
@@ -160,59 +130,144 @@ function SearchBarHome() {
                     </>
                 ) : (
                     <>
-                        <Form
-                            className="d-flex me-lg-3 ms-lg-3 pe-lg-1 ps-1  align-items-center justify-content-center serch-focus"
-                            style={{
-                                width: "102vw",
-                                height: "100%",
-                                maxHeight: "200px",
-                            }}
-                            onSubmit={(e) => SubmitSearchRequest(e)}
-                        >
-                            <div className="search-imgbox">
-                                <img className="search-img" src="https://i.ibb.co/XZwQzvw/Vector-1.png" alt="" />
-                            </div>
-
-                            <Form.Control
-                                type="text"
-                                className=" serch-input"
-                                aria-label="Search"
-                                style={
-                                    {
-                                        // padding: "0",
-                                        // width: "100%",
-                                        // maxWidth: "450px",
-                                        // minWidth: "110px",
-                                        // borderRadius: "0 12px 12px 100px",
-                                    }
-                                }
-                                // home
-                                value={inputVal}
-                                placeholder="Search the web to plant trees..."
-                                onChange={(e) => onChangeInput(e)}
-                            />
-
-                            <Button
-                                // variant="success "
-                                type="submit"
-                                className="  d-flex justify-content-center align-items-center search-text"
+                        {searchBar ? (
+                            <Form
+                                className="topSearchBar_Form topSearchBar_Form d-flex me-3 ms-3 pe-1 ps-1  align-items-center justify-content-center serch-focus"
                                 style={{
-                                    width: "2px",
-                                    color: "black",
-                                    // height: "50%",
-                                    borderRadius: "0 100px 100px 0",
-                                    position: "relative",
-                                    right: "5px",
-                                    // backgroundColor: "#40AF04",
-                                    backgroundColor: "#fff",
-                                    border: "none",
+                                    width: "80vw",
+                                    height: "100%",
+                                    maxHeight: "200px",
                                 }}
+                                onSubmit={(e) => SubmitSearchRequest(e)}
                             >
-                                <div className="text-black bg-light">
-                                    <FontAwesomeIcon icon={faMagnifyingGlass} className="text-black me-2" size="lg" />
+                                <div className="top_searchBar d-flex">
+                                    {/* <div className="search-imgbox">
+                                      <img className="search-img" src="https://i.ibb.co/XZwQzvw/Vector-1.png" alt="" />
+                                  </div> */}
+                                    <Form.Control
+                                        type="text"
+                                        className=" serch-input"
+                                        aria-label="Search"
+                                        placeholder="Search the web to plant trees..."
+                                        // style={{ border: "none", height: "19vh", position: "relative" }}
+                                        // style={{ borderRadius: "100px 100px 100px 100px" }}
+                                        // home
+                                        value={inputVal}
+                                        onChange={(e) => onChangeInput(e)}
+                                    />
+
+                                    <Button
+                                        // variant="success "
+                                        type="submit"
+                                        className="  d-flex justify-content-center align-items-center search-text"
+                                        style={{
+                                            // width: "2px",
+                                            color: "black",
+                                            borderRadius: "0 100px 100px 0",
+                                            // position: "absolute",
+                                            // right: "17px",
+                                            // top: "20px",
+                                            backgroundColor: "#fff",
+                                            border: "none",
+                                        }}
+                                    >
+                                        <div className="text-black ">
+                                            <FontAwesomeIcon icon={faMagnifyingGlass} className="text-black me-2" size="lg" />
+                                        </div>
+                                    </Button>
                                 </div>
-                            </Button>
-                        </Form>
+                            </Form>
+                        ) : (
+                            //     <Form
+                            //         className="homeSearchBar topSearchBar_Form d-flex me-3 ms-3 pe-1 ps-1  align-items-center justify-content-center serch-focus"
+                            //         style={{
+                            //             width: "80vw",
+                            //             height: "100%",
+                            //             maxHeight: "200px",
+                            //         }}
+                            //         // onSubmit={(e) => SubmitSearchRequest(e)}
+                            //     >
+                            //         {/* <div className="search-imgbox">
+                            //     <img className="search-img" src="https://i.ibb.co/XZwQzvw/Vector-1.png" alt="" />
+                            // </div> */}
+
+                            //         <div className="top_searchBar d-flex">
+                            //             <Form.Control
+                            //                 type="text"
+                            //                 className="me-1 serch-input"
+                            //                 aria-label="Search"
+                            //                 // home
+                            //                 // value={inputVal}
+                            //                 placeholder="Search the web to plant trees..."
+                            //                 onClick={() => setSearchBar(true)}
+                            //                 // onChange={(e) => onChangeInput(e)}
+                            //             />
+
+                            //             <Button
+                            //                 // variant="success "
+                            //                 // type="submit"
+                            //                 className="  d-flex justify-content-center align-items-center search-text"
+                            //                 style={{
+                            //                     width: "2px",
+                            //                     color: "black",
+                            //                     borderRadius: "0 100px 100px 0",
+                            //                     position: "relative",
+                            //                     right: "5px",
+                            //                     backgroundColor: "#fff",
+                            //                     border: "none",
+                            //                 }}
+                            //             >
+                            //                 <div className="text-black bg-light">
+                            //                     <FontAwesomeIcon icon={faMagnifyingGlass} className="text-black me-2" size="lg" />
+                            //                 </div>
+                            //             </Button>
+                            //         </div>
+                            //     </Form>
+
+                            <Form
+                                className="homeSearchBar d-flex me-3 ms-3 pe-1 ps-1  align-items-center justify-content-center serch-focus"
+                                style={{
+                                    width: "80vw",
+                                    height: "100%",
+                                    maxHeight: "200px",
+                                }}
+                                // onSubmit={(e) => SubmitSearchRequest(e)}
+                            >
+                                {/* <div className="search-imgbox">
+                            <img className="search-img" src="https://i.ibb.co/XZwQzvw/Vector-1.png" alt="" />
+                        </div> */}
+
+                                <Form.Control
+                                    type="text"
+                                    className="me-1 serch-input"
+                                    aria-label="Search"
+                                    // home
+                                    // value={inputVal}
+                                    placeholder="Search the web to plant trees..."
+                                    onClick={() => setSearchBar(true)}
+                                    // onChange={(e) => onChangeInput(e)}
+                                />
+
+                                <Button
+                                    // variant="success "
+                                    // type="submit"
+                                    className="  d-flex justify-content-center align-items-center search-text"
+                                    style={{
+                                        width: "2px",
+                                        color: "black",
+                                        borderRadius: "0 100px 100px 0",
+                                        position: "relative",
+                                        right: "5px",
+                                        backgroundColor: "#fff",
+                                        border: "none",
+                                    }}
+                                >
+                                    <div className="text-black bg-light">
+                                        <FontAwesomeIcon icon={faMagnifyingGlass} className="text-black me-2" size="lg" />
+                                    </div>
+                                </Button>
+                            </Form>
+                        )}
                     </>
                 )}
 
@@ -242,42 +297,33 @@ function SearchBarHome() {
             </div>
 
             <div className="d-flex justify-content-center">
-                {/* <div>
-                    <div className="set-asposition">
+                <div>
+                    <div className="d-sm-flex">
                         <div className="d-flex justify-content-center">
                             <h1 className="text-white banner-text me-1 chrome">+</h1>
                             <h1 className="text-white banner-text me-3 chrome">Add To Browser</h1>
                             <h1 className="text-white">|</h1>
 
-                            
+                            {/* <h1 className="text-white banner-text ms-5 mt-3 mt-sm-2">
+                    <AiOutlineHome></AiOutlineHome>
+                </h1> */}
+                            {/* <h1 className="text-white banner-text ms-4 mt-3 mt-sm-2">Set As Home</h1> */}
                         </div>
                     </div>
                 </div>
-
-                <div>
-                    <div className="book-margin">
-                        <Bookmarks></Bookmarks>
-                    </div>
-                </div> */}
-
-                <Container>
-                    {/* <Row> */}
-                    {/* <Col> */}
-                    <div className="d-flex justify-content-center justify-items-center">
-                        <div className="d-flex justify-content-center">
-                            <h1 className="text-white banner-text me-1 chrome">+</h1>
-                            <h1 className="text-white banner-text me-3 chrome">Add To Browser</h1>
-                            <h1 className="text-white">|</h1>
-                        </div>
-                        {/* </Col> */}
-                        {/* <Col> */}
-                        <div className="mt-lg-1 mt-sm-0">
+                {searchBar ? (
+                    <div>
+                        <div className=" mt-1">
                             <Bookmarks></Bookmarks>
                         </div>
                     </div>
-                    {/* </Col> */}
-                    {/* </Row> */}
-                </Container>
+                ) : (
+                    <div>
+                        <div className="mt-1">
+                            <Bookmarks></Bookmarks>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

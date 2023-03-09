@@ -35,18 +35,15 @@ const WhyChooseUs = () => {
             <div
                 className="lg:flex lg:justify-around d-flex
              justify-content-evenly align-items-center WhyChooseUsCards py-5 d-flex gap-6"
-
             >
-                <div className="chooseUs flex flex-col text-center  flex-sm-column my-5" >
+                <div className="chooseUs flex flex-col text-center  flex-sm-column my-5">
                     <img className="bg-blue ml-6 w-70 h-36" src={cupshape} alt="" width="90px" height="90px" />
 
                     <h1 className=" text-3xl font-semibold mt-3">750+</h1>
                     <p className=" text-2xl font-medium mt-3" style={{ color: "#808080" }}>
                         trees planted
                     </p>
-                    <img
-                    style={{objectFit:"cover"}}
-                    className="mt-6 rounded-xl w-56 h-56 ml-6" src={happiness1} alt="" width="250px" height="250px" />
+                    <img style={{ objectFit: "cover" }} className="mt-6 rounded-xl w-56 h-56 ml-6" src={happiness1} alt="" width="250px" height="250px" />
                 </div>
 
                 <div className="flex flex-col justify-center justify-items-center text-center my-5">

@@ -136,6 +136,8 @@ color: #969696;
     text-align: center;
 }
 
+
+
 .card-div {
     /* margin-left: 5%; */
     /* margin-right: 5%; */
@@ -183,6 +185,16 @@ color: #969696;
 
 
 @media only screen and (max-width: 599px) and (min-width:500px){
+
+    .top_searchBar{
+        width: 150px;
+        height: 38px;
+        /* background-color: #FFFFFF; */
+        position: fixed;
+        top: 0;
+        z-index: 10000000000;
+        left: 0;
+    }
     .two_images{
         flex-wrap:  wrap;   
     }
@@ -307,6 +319,16 @@ color: #969696;
 }
 
  @media only screen and (max-width: 499px) and (min-width:400px){
+    .top_searchBar{
+        width: 150px;
+        height: 38px;
+        /* background-color: #FFFFFF; */
+        position: fixed;
+        top: 0;
+        z-index: 10000000000;
+        left: 85px;
+        top: 21px;
+    }
             .two_images{
                 flex-wrap:  wrap;   
             }
@@ -314,6 +336,7 @@ color: #969696;
                 left: 4%;
                 width: 162px; 
                 bottom: 53px;
+                height: 175px;
             }
               .card-image {
                 width: 100%;
@@ -334,6 +357,16 @@ color: #969696;
             }
         }
         @media only screen and (max-width: 399px) and (min-width:260px){
+
+            .top_searchBar{
+                width: 40vw;
+                height: 38px;
+                /* background-color: #FFFFFF; */
+                position: absolute;
+                top: 18px;
+                z-index: 10000000000;
+                left: 70px;
+            }
             .two_images{
                 flex-wrap:  wrap;   
             }

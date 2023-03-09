@@ -12,7 +12,7 @@ const PageBanner = ({ title, excerpt, image, Titlecolor = "#55FE3F", subVariant 
                 <div className="row">
                     <div className="col-md-12" style={{ position: "relative" }}>
                         <Typography
-                            variant="h1"
+                            variant="h2"
                             align="center"
                             color={Titlecolor}
                             fontFamily="'Playfair Display', serif"

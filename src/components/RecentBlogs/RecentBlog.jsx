@@ -7,7 +7,7 @@ const RecentBlog = () => {
             <div className="container w-100">
                 <div className="RecentBlogTop p-5 mt-5 text-center">
                     <h2 className="recent-title">
-                        Recent Blog and <span>Articles</span>
+                        Recent Blogs and <span>Articles</span>
                     </h2>
                     <p className="font-normal mt-4 mb-16 recent-para">
                         Until recently, world hunger was not declared since 2014. Today an unprecedented food crisis is engulfing the world. The number of
@@ -56,8 +56,8 @@ const RecentBlog = () => {
                         </button>
                         <h4 className="text-start my-4">Why Global Warming Keeps On Increasing?</h4>
                         <p className="text-start">
-                            Human activity has increased greenhouse gases in the atmosphere since the Industrial Revolution, leading to more heat retention and
-                            an increase in surface temperatures.
+                            Since the Industrial Revolution, human activities have increased greenhouse gases in the atmosphere resulting in more heat retention
+                            and increased surface temperatures.
                         </p>
                     </div>{" "}
                     <div className="inner-box p-4 bg-light rounded-2 shadow">
@@ -70,7 +70,9 @@ const RecentBlog = () => {
 
                         <h4 className="text-start my-4">Why Do People Suffer From Hunger Crisis?</h4>
                         <p className="text-start">
-                            Create an active mind and body that could break a chain of a particular poverty cycle through your hunger-free searches
+                            Climate change linked with poverty, gender discrimination, conflicts, inequity, weak government and poor health systems all play a
+                            role in keeping nutritious food out of reach for millions of people around the world. The most vulnerable group to this crisis are
+                            the children.
                         </p>
                     </div>
                 </div>

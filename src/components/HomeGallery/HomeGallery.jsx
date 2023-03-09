@@ -92,7 +92,8 @@ const HomeGallery = () => {
                         <div className="text-center bg-white gellary-infos">
                             <h6 className="infos-tilte">Give A Sanitary Pad</h6>
                             <p className="infos-pra">
-                                Create an active mind and body that could break a chain of a particular poverty cycle through your hunger-free searches
+                                Shape a girl into a change maker or an inspiration that the world can not wait to have by making your searches girl-power
+                                oriented.
                             </p>
                         </div>
                     </div>

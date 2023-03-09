@@ -8,7 +8,7 @@ import HomeData from "../../../data/home.json";
 const TeamContainer = ({ classOption }) => {
     return (
         <div className={`team-section overflow-hidden ${classOption}`}>
-            <div className="container position-relative">
+            <div className="container position-relative" style={{}}>
                 <div className="row align-items-center">
                     <div className="col-lg-5">
                         <div className="team-content-wrap">
@@ -19,15 +19,8 @@ const TeamContainer = ({ classOption }) => {
                                 excerptClassOption="mb-5"
                                 excerpt="Pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain"
                             />
-                            <p className="high-light mb-8">
-                                Pleasure rationally encounter consequences that
-                                are extremely painful. Nor again is there
-                            </p>
-                            <Button
-                                classOption="btn btn-lg btn-dark btn-hover-dark"
-                                text="View more"
-                                path="/team"
-                            />
+                            <p className="high-light mb-8">Pleasure rationally encounter consequences that are extremely painful. Nor again is there</p>
+                            <Button classOption="btn btn-lg btn-dark btn-hover-dark" text="View more" path="/team" />
                         </div>
                     </div>
                     <div className="col-lg-7">

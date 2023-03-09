@@ -17,7 +17,9 @@ const BlogPage = () => {
                 <div className="wrapper">
                     <NavBarUpdated2></NavBarUpdated2>
 
-                    <PageBanner title="Current Campaings" excerpt="Projects around the world" image="./images/blog/banner.png" />
+                    <div style={{ overflowX: "hidden" }}>
+                        <PageBanner title="Current Campaings" excerpt="Projects around the world" image="./images/blog/banner.png" />
+                    </div>
                     <BlogItemContainer data={BlogData} />
                     {/* <NewsletterArea /> */}
                     <Footer />
